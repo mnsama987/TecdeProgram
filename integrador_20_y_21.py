@@ -24,14 +24,11 @@ def sumar():
         suma += i
     return suma
 suma = sumar()
-print(f"la suma es {suma}")
 
 # - promedio
 def promediar():
     promedio = suma/contador
     return promedio
-
-print(f"el promedio es {promediar()}")
 
 # - cantidad de números pares
 def contar_pares():
@@ -42,6 +39,31 @@ def contar_pares():
     cantidad_pares = len(pares)
     return pares, cantidad_pares  
 
+promedio = promediar()
 pares, cantidad_pares = contar_pares()
-print(f"los numeros pares son {pares} y la cantidad de numeros pares es {cantidad_pares}")   
 
+# ### Ejercicio 21 — Persistencia de datos
+# Extender el ejercicio anterior para:
+# - guardar los datos en un archivo
+# - luego leerlos desde el archivo
+# - mostrar nuevamente los resultados
+def mostrar_datos(suma, promedio, pares, cantidad_pares):
+    print(f"la suma es {suma}")
+    print(f"el promedio es {promedio}")
+    print(f"los numeros pares son {pares} y la cantidad de numeros pares es {cantidad_pares}") 
+    return (
+        f"La suma es {suma}\n"
+        f"El promedio es {promedio}\n"
+        f"Los numeros pares son {pares}\n. La cantidad de numeros pares es {cantidad_pares}\n"     
+    )
+
+archivo = open("informe.txt", "w")
+archivo.write(
+    mostrar_datos(
+        suma,
+        promedio,
+        pares,
+        cantidad_pares
+    )
+)
+archivo.close()
